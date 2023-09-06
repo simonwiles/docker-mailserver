@@ -24,7 +24,7 @@ The impact of losing the real IP of the client connection can negatively affect 
 
 ### Why does this happen?
 
-When the host network receives a connection to a containers published port, it is routed to the containers internal network managed by Docker (_typically a bridge network_).
+When the host network receives a connection to a container's published port, it is routed to the containers internal network managed by Docker (_typically a bridge network_).
 
 By default, the Docker daemon only assigns IPv4 addresses to containers, thus it will only accept IPv4 connections (_unless a `docker-proxy` process is listening, which the default daemon setting `userland-proxy: true` enables_). With the daemon setting `userland-proxy: true` (default), IPv6 connections from the host can also be accepted and routed to containers (_even when they only have IPv4 addresses assigned_). `userland-proxy: false` will require the container to have atleast an IPv6 address assigned.
 
